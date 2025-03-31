@@ -13,6 +13,7 @@ Perfect for beginners learning C# or experienced developers looking for quick re
 ```bash
 SharpExercises/  
 ├── Utilities/          # Reusable utility methods  
+│   ├── Stopwatch.cs    # Provides a stopwatch funtionality
 │   ├── MathUtils.cs    # Math-related helpers  
 │   ├── StringUtils.cs  # String operations  
 │   └── ArrayUtils.cs   # Array manipulations  
@@ -21,6 +22,9 @@ SharpExercises/
 │   ├── BasicExercises/ # Beginner-level problems  
 │   ├── Algorithms/     # Sorting, searching, etc.  
 │   └── Challenges/     # Complex problems  
+│
+├── SimulationExercises/# Simulation of classes exercises 
+│   └── Post.cs         # Simulates a Post class voting system
 │  
 └── Program.cs          # Main entry point (demo/testing) 
 ``` 
