@@ -1,4 +1,6 @@
 ﻿using SharpExercises.SimulationExcersises;
+using SharpExercises.SimulationExcersises.Composition;
+using SharpExercises.SimulationExcersises.Inheritance;
 using SharpExercises.Utilities;
 
 //Start Main
@@ -34,5 +36,21 @@ for (int i = 0; i < 3; i++)
 
 Console.WriteLine($"StackOverFlow Post Simulation: ");
 post.DisplayPost();
+
+
+//Inheritance
+
+var text = new Text();
+text.Width = 100;
+text.Copy();
+
+//Composition
+
+var dbMigrator = new DbMigrator(new Logger());
+var logger = new Logger();
+var installer = new Installer(logger);
+await dbMigrator.MigrateAsync();
+await installer.InstallAsync();
+
 
 //End Main
