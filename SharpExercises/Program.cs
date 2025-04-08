@@ -1,7 +1,10 @@
 ﻿using SharpExercises.SimulationExcersises;
 using SharpExercises.SimulationExcersises.Composition;
 using SharpExercises.SimulationExcersises.Inheritance;
+using SharpExercises.SimulationExcersises.Polymorphism.DBMS;
 using SharpExercises.Utilities;
+using SharpExercises.Utilities.Queues;
+using System.Windows.Markup;
 
 //Start Main
 
@@ -51,6 +54,30 @@ var logger = new Logger();
 var installer = new Installer(logger);
 await dbMigrator.MigrateAsync();
 await installer.InstallAsync();
+
+
+
+//Exercises 
+#region Exercises 27 - C# Intermediate: Classes, Interfaces and OOP
+
+var stack = new Stack();
+stack.Push(1);
+stack.Push(2);
+stack.Push(3);
+Console.WriteLine(stack.Pop());
+Console.WriteLine(stack.Pop());
+Console.WriteLine(stack.Pop());
+
+#endregion
+
+#region Exercises 32 - C# Intermediate: Classes, Interfaces and OOP
+
+var dbCommand = new DbCommand(new SQLConnection("SQLConnectionString"), "Create Table Exercise");
+dbCommand.Execute();
+
+dbCommand = new DbCommand(new OracleConnection("OracleConnectionString"), "Create DATA2Table Exercise");
+dbCommand.Execute();
+#endregion
 
 
 //End Main
