@@ -2,6 +2,8 @@
 using SharpExercises.SimulationExcersises.Composition;
 using SharpExercises.SimulationExcersises.Inheritance;
 using SharpExercises.SimulationExcersises.Polymorphism.DBMS;
+using SharpExercises.SimulationExcersises.WorkflowEngine;
+using SharpExercises.SimulationExcersises.WorkflowEngine.Activities;
 using SharpExercises.Utilities;
 using SharpExercises.Utilities.Queues;
 using System.Windows.Markup;
@@ -15,12 +17,13 @@ if (!stopwatch.IsRunning)
 {
     stopwatch.Start();
 }
-await Task.Delay(2000);
+await Task.Delay(1000);
+Thread.Sleep(1000);
 
 stopwatch.Stop();
 
 Console.WriteLine($"Stopwatch: ");
-Console.WriteLine($"Duration {stopwatch.GetDuration()}\n");
+Console.WriteLine($"Duration {stopwatch.GetDuration()}");
 
 
 //Post call
@@ -79,5 +82,22 @@ dbCommand = new DbCommand(new OracleConnection("OracleConnectionString"), "Creat
 dbCommand.Execute();
 #endregion
 
+
+
+#region Exercises 39 - C# Intermediate: Classes, Interfaces and OOP
+
+var workflow = new Workflow();
+workflow.RegisterActivity(new VideoUploadActivity());
+workflow.RegisterActivity(new VideoEncodingActivity());
+workflow.RegisterActivity(new VideoConverterActivity());
+workflow.RegisterActivity(new VideoStatusChangeActivity());
+
+var engine = new WorkflowEngine();
+
+engine.Run(workflow);
+
+
+
+#endregion
 
 //End Main

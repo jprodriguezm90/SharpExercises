@@ -8,7 +8,7 @@ namespace SharpExercises.Utilities.Queues
 {
     public class Stack
     {
-        private List<object> _stack = new List<object>();
+        private readonly List<object> _stack = new List<object>();
 
         public void Push(object item)
         {
@@ -20,8 +20,9 @@ namespace SharpExercises.Utilities.Queues
         {
             if (_stack.Count == 0)
                 throw new InvalidOperationException("The stack is empty and cannot extract any more items");
-            var item = _stack[0];
-            _stack.RemoveAt(0);
+            var index = _stack.Count - 1;
+            var item = _stack[index];
+            _stack.RemoveAt(index);
             return item;
         }
         public void Clear()
